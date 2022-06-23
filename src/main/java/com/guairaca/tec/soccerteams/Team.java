@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "teams")
@@ -13,10 +16,17 @@ public class Team {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+	
+	@NotBlank
 	private String name;
+
+	@NotNull
     private int wins;
+
+	@NotNull
     private int defeats;
+	
+	@NotNull
     private int draws;
 	
 	public Long getId() {
